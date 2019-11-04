@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default function ScoreButtons() {
-  const [lionsScore, setLionsScore] = useState(0);
-  const [tigersScore, setTigersScore] = useState(10);
 
   return (
     <section className="buttons">
