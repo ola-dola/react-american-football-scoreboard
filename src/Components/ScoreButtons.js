@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ScoreButtons({handleScore}) {
+export default function ScoreButtons({handleScore, handleQuarter}) {
 
   return (
     <section className="buttons">
@@ -12,6 +12,9 @@ export default function ScoreButtons({handleScore}) {
       <div className="awayButtons">
         <button className="awayButtons__touchdown" onClick={() => handleScore('away', 7)}>Away Touchdown</button>
         <button className="awayButtons__fieldGoal" onClick={() => handleScore('away', 3)}>Away Field Goal</button>
+      </div>
+      <div className="awayButtons">
+        <button className="awayButtons__touchdown" onClick={handleQuarter}>Remaining Quarter</button>
       </div>
     </section>
   );

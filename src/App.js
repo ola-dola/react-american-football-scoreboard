@@ -8,6 +8,7 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(10);
+  const [quarter, setQuarter] = useState(4);
 
   const handleScore = (team, amount) => {
     if (team.toLowerCase() === 'home') {
@@ -17,6 +18,12 @@ function App() {
     }
   }
 
+  const handleQuarter = () => {
+    if (quarter > 0) {
+      return setQuarter(quarter - 1);
+    }
+    return "End time";
+  }
   return (
     <div className="container">
       <section className="scoreboard">
@@ -34,9 +41,9 @@ function App() {
             <div className="away__score">{awayScore}</div>
           </div>
         </div>
-        <BottomRow />
+        <BottomRow quarter={quarter}/>
       </section>
-      <ScoreButtons  handleScore={handleScore} />
+      <ScoreButtons handleScore={handleScore} handleQuarter={handleQuarter}/>
     </div>
   );
 }
