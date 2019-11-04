@@ -9,6 +9,14 @@ function App() {
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(10);
 
+  const handleScore = (team, amount) => {
+    if (team.toLowerCase() === 'home') {
+      return setHomeScore(homeScore + amount);
+    } else {
+      return setAwayScore(awayScore + amount);
+    }
+  }
+
   return (
     <div className="container">
       <section className="scoreboard">
@@ -28,7 +36,7 @@ function App() {
         </div>
         <BottomRow />
       </section>
-      <ScoreButtons />
+      <ScoreButtons  handleScore={handleScore} />
     </div>
   );
 }
